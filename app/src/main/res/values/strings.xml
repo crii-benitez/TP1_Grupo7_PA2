@@ -1,0 +1,38 @@
+<resources>
+    -- activity_main.xml
+    <string name="app_name">TP1_Grupo7_PA2</string>
+    <string name="tv_numero_actividad">Actividad N° 1</string>
+    <string name="button_ejercicio_1">Ejercicio 1</string>
+    <string name="button_ejercicio_2">Ejercicio 2</string>
+    <string name="tv_integrantes_equipo">INTEGRANTES DE EQUIPO</string>
+    <string name="tv_integrantes_list">Cristian J Benitez\nSantiago Lucas Barzola\nDenise Roccia\nGabriel Alejandro Robledo</string>
+
+    -- activity_ejercicio1.xml
+    <string name="primer_numero">Primer número:</string>
+    <string name="segundo_numero">Segundo número:</string>
+    <string name="hint_ingrese_numero">Ingrese un número</string>
+    <string name="button_calcular">Calcular</string>
+
+    -- activity_ejercicio2.xml
+    <string name="uno">1</string>
+    <string name="dos">2</string>
+    <string name="tres">3</string>
+    <string name="cuatro">4</string>
+
+    <string name="cinco">5</string>
+    <string name="seis">6</string>
+    <string name="siete">7</string>
+    <string name="ocho">8</string>
+
+    <string name="nueve">9</string>
+    <string name="cero">0</string>
+    <string name="sumar">+</string>
+    <string name="restar">-</string>
+
+    <string name="multiplicar">*</string>
+    <string name="dividir">/</string>
+    <string name="calcular">=</string>
+    <string name="borrar">C</string>
+
+    <string name="resultado">0</string>
+</resources>

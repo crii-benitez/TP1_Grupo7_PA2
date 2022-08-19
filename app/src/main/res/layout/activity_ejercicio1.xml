@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".Ejercicio1Activity">
+
+    <TextView
+        android:id="@+id/tvTituloApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/tv_numero_actividad"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingTop="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        android:paddingTop="25dp">
+
+        <TextView
+            android:id="@+id/tvPrimerNumero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:text="@string/primer_numero"
+            android:textColor="@color/white"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/etPrimerNumero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_ingrese_numero"
+            android:textColor="@color/white"
+            android:textColorHint="#474747"
+            android:textSize="20sp"
+            android:inputType="numberDecimal|numberSigned" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:id="@+id/tvSegundoNumero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:text="@string/segundo_numero"
+            android:textColor="@color/white"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/etSegundoNumero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_ingrese_numero"
+            android:textColor="@color/white"
+            android:textColorHint="#474747"
+            android:textSize="20sp"
+            android:inputType="numberDecimal|numberSigned" />
+    </TableRow>
+
+    <TextView
+        android:id="@+id/tvResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:layout_marginEnd="10dp"/>
+
+    <Button
+        android:id="@+id/btnCalcular"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:text="@string/button_calcular" />
+
+</LinearLayout>
