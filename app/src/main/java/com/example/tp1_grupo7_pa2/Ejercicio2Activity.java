@@ -11,6 +11,11 @@ import android.widget.Toast;
 
 public class Ejercicio2Activity extends AppCompatActivity {
 
+    private static String SumaConst = "+";
+    private static String RestaConst = "-";
+    private static String DivicionConst = "/";
+    private static String MultiplicacionConst = "*";
+
     // Controles de operaciones:
     private Button btnSumar;
     private Button btnRestar;
@@ -41,26 +46,22 @@ public class Ejercicio2Activity extends AppCompatActivity {
     {
         btnSumar.setOnClickListener(view ->
         {
-            // TODO: Debería agregar o cambiar el signo del cálculo.
-            tvExpresion.setText("+");
+            ModificarOperador(SumaConst);
         });
 
         btnRestar.setOnClickListener(view ->
         {
-            // TODO: Debería agregar o cambiar el signo del cálculo.
-            tvExpresion.setText("-");
+            ModificarOperador(RestaConst);
         });
 
         btnDividir.setOnClickListener(view ->
         {
-            // TODO: Debería agregar o cambiar el signo del cálculo.
-            tvExpresion.setText("/");
+            ModificarOperador(DivicionConst);
         });
 
         btnMultiplicar.setOnClickListener(view ->
         {
-            // TODO: Debería agregar o cambiar el signo del cálculo.
-            tvExpresion.setText("*");
+            ModificarOperador(MultiplicacionConst);
         });
 
         // Igual
@@ -109,6 +110,13 @@ public class Ejercicio2Activity extends AppCompatActivity {
     {
         // TODO: En este metodo vamos a analizar la expression para entenderla y llevarla a números y operaciones.
         tvExpresion.setText("RESULTADO!!!!");
+    }
+
+    private void ModificarOperador(String operador)
+    {
+        // TODO: Validaciones, no se puede agregar el mismo operador 2 veces por ejemplo.
+        // TODO: Debería agregar o cambiar el signo del cálculo.
+        tvExpresion.setText(operador);
     }
 
     @Override
