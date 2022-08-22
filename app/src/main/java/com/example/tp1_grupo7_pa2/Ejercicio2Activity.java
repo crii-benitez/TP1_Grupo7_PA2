@@ -24,8 +24,10 @@ public class Ejercicio2Activity extends AppCompatActivity {
     private Button btnBorrar;
     private Button btnIgual;
     private TextView tvExpresion;
+    private boolean operatorClick = false;
 
     // Controles númericos:
+    private Button [] btnNum = new Button[10] ;
 
     private void SetViewControls()
     {
@@ -39,7 +41,16 @@ public class Ejercicio2Activity extends AppCompatActivity {
         tvExpresion = findViewById(R.id.tvExpresion);
 
         // Controles númericos.
-        // TODO: Obtener también todas las view (Buttons) de los controles númericos
+        btnNum[0] = findViewById(R.id.btnNro0);
+        btnNum[1] = findViewById(R.id.btnNro1);
+        btnNum[2] = findViewById(R.id.btnNro2);
+        btnNum[3] = findViewById(R.id.btnNro3);
+        btnNum[4] = findViewById(R.id.btnNro4);
+        btnNum[5] = findViewById(R.id.btnNro5);
+        btnNum[6] = findViewById(R.id.btnNro6);
+        btnNum[7] = findViewById(R.id.btnNro7);
+        btnNum[8] = findViewById(R.id.btnNro8);
+        btnNum[9] = findViewById(R.id.btnNro9);
     }
 
     private void SetListenerOperadores()
@@ -81,9 +92,54 @@ public class Ejercicio2Activity extends AppCompatActivity {
         });
     }
 
+    private void onClickNumber(Button btn)
+    {   String valor = btn.getText().toString();
+        int number = Integer.parseInt(valor);
+        tvExpresion.setText(tvExpresion.getText().toString()+number);
+    }
+
     private void SetListenerNumeros()
     {
-        // TODO: Agregar la funcionalidad a los botones numericos (ver SetListenerOperadores())
+        btnNum[0].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[0]);
+        });
+        btnNum[1].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[1]);
+        });
+        btnNum[2].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[2]);
+        });
+        btnNum[3].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[3]);
+        });
+        btnNum[4].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[4]);
+        });
+        btnNum[5].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[5]);
+        });
+        btnNum[6].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[6]);
+        });
+        btnNum[7].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[7]);
+        });
+        btnNum[8].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[8]);
+        });
+        btnNum[9].setOnClickListener(view ->
+        {
+            onClickNumber(btnNum[9]);
+        });
     }
 
     private void SetListener()
@@ -116,7 +172,18 @@ public class Ejercicio2Activity extends AppCompatActivity {
     {
         // TODO: Validaciones, no se puede agregar el mismo operador 2 veces por ejemplo.
         // TODO: Debería agregar o cambiar el signo del cálculo.
-        tvExpresion.setText(operador);
+        if(tvExpresion.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "El formato usado no es valido", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            if (operatorClick)
+            {
+                //TODO: Calcular el resultado
+            }
+            operatorClick = true;
+            tvExpresion.setText(tvExpresion.getText().toString()+operador);
+        }
     }
 
     @Override
