@@ -13,7 +13,7 @@ public class Ejercicio2Activity extends AppCompatActivity {
 
     private static String SumaConst = "+";
     private static String RestaConst = "-";
-    private static String DivicionConst = "/";
+    private static String DivisionConst = "/";
     private static String MultiplicacionConst = "*";
 
     // Controles de operaciones:
@@ -67,7 +67,7 @@ public class Ejercicio2Activity extends AppCompatActivity {
 
         btnDividir.setOnClickListener(view ->
         {
-            ModificarOperador(DivicionConst);
+            ModificarOperador(DivisionConst);
         });
 
         btnMultiplicar.setOnClickListener(view ->
@@ -84,7 +84,6 @@ public class Ejercicio2Activity extends AppCompatActivity {
             {
                 CalcularResultado(expression);
             }
-            // TODO: Realizar el calculo de suma / divición / multiplicación / resta dependiendo lo ingresado.
         });
 
         btnBorrar.setOnClickListener(view -> {
@@ -92,7 +91,47 @@ public class Ejercicio2Activity extends AppCompatActivity {
         });
     }
 
-    private void onClickNumber(Button btn)
+    private void CalcularResultado(String expression)
+    {
+        if (expression.indexOf('+')>0)
+        {
+            String values[] = expression.split("\\+");
+
+            int number1 = Integer.parseInt(values[0]);
+            int number2 = Integer.parseInt(values[1]);
+            int result = number1+number2;
+            tvExpresion.setText(""+result );
+        }
+        if (expression.indexOf('-')>0)
+        {
+            String values[] = expression.split("-");
+
+            int number1 = Integer.parseInt(values[0]);
+            int number2 = Integer.parseInt(values[1]);
+            int result = number1-number2;
+            tvExpresion.setText(""+result );
+        }
+        if (expression.indexOf('*')>0)
+        {
+            String values[] = expression.split("\\*");
+
+            int number1 = Integer.parseInt(values[0]);
+            int number2 = Integer.parseInt(values[1]);
+            int result = number1*number2;
+            tvExpresion.setText(""+result );
+        }
+        if (expression.indexOf('/')>0)
+        {
+            String values[] = expression.split("\\/");
+
+            int number1 = Integer.parseInt(values[0]);
+            int number2 = Integer.parseInt(values[1]);
+            int result = number1/number2;
+            tvExpresion.setText(""+result );
+        }
+    }
+
+    private void onClickNumero(Button btn)
     {   String valor = btn.getText().toString();
         int number = Integer.parseInt(valor);
         tvExpresion.setText(tvExpresion.getText().toString()+number);
@@ -102,43 +141,43 @@ public class Ejercicio2Activity extends AppCompatActivity {
     {
         btnNum[0].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[0]);
+            onClickNumero(btnNum[0]);
         });
         btnNum[1].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[1]);
+            onClickNumero(btnNum[1]);
         });
         btnNum[2].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[2]);
+            onClickNumero(btnNum[2]);
         });
         btnNum[3].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[3]);
+            onClickNumero(btnNum[3]);
         });
         btnNum[4].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[4]);
+            onClickNumero(btnNum[4]);
         });
         btnNum[5].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[5]);
+            onClickNumero(btnNum[5]);
         });
         btnNum[6].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[6]);
+            onClickNumero(btnNum[6]);
         });
         btnNum[7].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[7]);
+            onClickNumero(btnNum[7]);
         });
         btnNum[8].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[8]);
+            onClickNumero(btnNum[8]);
         });
         btnNum[9].setOnClickListener(view ->
         {
-            onClickNumber(btnNum[9]);
+            onClickNumero(btnNum[9]);
         });
     }
 
@@ -162,12 +201,6 @@ public class Ejercicio2Activity extends AppCompatActivity {
         return true;
     }
 
-    private void CalcularResultado(String expression)
-    {
-        // TODO: En este metodo vamos a analizar la expression para entenderla y llevarla a números y operaciones.
-        tvExpresion.setText("RESULTADO!!!!");
-    }
-
     private void ModificarOperador(String operador)
     {
         // TODO: Validaciones, no se puede agregar el mismo operador 2 veces por ejemplo.
@@ -179,7 +212,7 @@ public class Ejercicio2Activity extends AppCompatActivity {
         else{
             if (operatorClick)
             {
-                //TODO: Calcular el resultado
+                CalcularResultado(tvExpresion.getText().toString());
             }
             operatorClick = true;
             tvExpresion.setText(tvExpresion.getText().toString()+operador);
