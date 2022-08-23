@@ -87,7 +87,7 @@ public class Ejercicio2Activity extends AppCompatActivity {
         });
 
         btnBorrar.setOnClickListener(view -> {
-            tvExpresion.setText("");
+            tvExpresion.setText("0");
         });
     }
 
@@ -95,46 +95,87 @@ public class Ejercicio2Activity extends AppCompatActivity {
     {
         if (expression.indexOf('+')>0)
         {
-            String values[] = expression.split("\\+");
 
-            int number1 = Integer.parseInt(values[0]);
-            int number2 = Integer.parseInt(values[1]);
-            int result = number1+number2;
-            tvExpresion.setText(""+result );
+            try{
+                String values[] = expression.split("\\+");
+                int number1 = Integer.parseInt(values[0]);
+                int number2 = Integer.parseInt(values[1]);
+                int result = number1+number2;
+                tvExpresion.setText(""+result );
+            }
+            catch(Exception error1){
+                Toast.makeText(this, "Operador dos veces", Toast.LENGTH_SHORT).show();
+
+            }
+
+
         }
         if (expression.indexOf('-')>0)
         {
-            String values[] = expression.split("-");
+            try{
+                String values[] = expression.split("\\-");
+                int number1 = Integer.parseInt(values[0]);
+                int number2 = Integer.parseInt(values[1]);
+                int result = number1-number2;
+                tvExpresion.setText(""+result );
+            }
+            catch(Exception error1){
+                Toast.makeText(this, "Operador dos veces", Toast.LENGTH_SHORT).show();
 
-            int number1 = Integer.parseInt(values[0]);
-            int number2 = Integer.parseInt(values[1]);
-            int result = number1-number2;
-            tvExpresion.setText(""+result );
+            }
         }
         if (expression.indexOf('*')>0)
         {
-            String values[] = expression.split("\\*");
+            try{
+                String values[] = expression.split("\\*");
+                int number1 = Integer.parseInt(values[0]);
+                int number2 = Integer.parseInt(values[1]);
+                int result = number1*number2;
+                tvExpresion.setText(""+result );
+            }
+            catch(Exception error1){
+                Toast.makeText(this, "Operador dos veces", Toast.LENGTH_SHORT).show();
 
-            int number1 = Integer.parseInt(values[0]);
-            int number2 = Integer.parseInt(values[1]);
-            int result = number1*number2;
-            tvExpresion.setText(""+result );
+            }
         }
         if (expression.indexOf('/')>0)
         {
-            String values[] = expression.split("\\/");
+            try{
+                String values[] = expression.split("\\/");
+                int number1 = Integer.parseInt(values[0]);
+                int number2 = Integer.parseInt(values[1]);
+                int result = number1/number2;
+                tvExpresion.setText(""+result );
+            }
+            catch(Exception error1){
+                Toast.makeText(this, "Operador dos veces", Toast.LENGTH_SHORT).show();
 
-            int number1 = Integer.parseInt(values[0]);
-            int number2 = Integer.parseInt(values[1]);
-            int result = number1/number2;
-            tvExpresion.setText(""+result );
+            }
         }
     }
 
     private void onClickNumero(Button btn)
     {   String valor = btn.getText().toString();
         int number = Integer.parseInt(valor);
-        tvExpresion.setText(tvExpresion.getText().toString()+number);
+
+        try{
+            String valorCero = tvExpresion.getText().toString();
+            int numberCero = Integer.parseInt(valorCero);
+            if (numberCero==0)
+            {
+                tvExpresion.setText(""+number);
+            }
+            else{
+                tvExpresion.setText(tvExpresion.getText().toString()+number);
+
+            }
+        }
+        catch(Exception error1){
+            tvExpresion.setText(tvExpresion.getText().toString()+number);
+        }
+
+
+
     }
 
     private void SetListenerNumeros()
@@ -205,7 +246,7 @@ public class Ejercicio2Activity extends AppCompatActivity {
     {
         // TODO: Validaciones, no se puede agregar el mismo operador 2 veces por ejemplo.
         // TODO: Debería agregar o cambiar el signo del cálculo.
-        if(tvExpresion.getText().toString().isEmpty())
+        if(tvExpresion.getText().toString().isEmpty()||tvExpresion.getText().toString()=="0")
         {
             Toast.makeText(this, "El formato usado no es valido", Toast.LENGTH_SHORT).show();
         }
@@ -214,8 +255,14 @@ public class Ejercicio2Activity extends AppCompatActivity {
             {
                 CalcularResultado(tvExpresion.getText().toString());
             }
-            operatorClick = true;
-            tvExpresion.setText(tvExpresion.getText().toString()+operador);
+            if(tvExpresion.getText().toString().indexOf('/')<0&&
+                    tvExpresion.getText().toString().indexOf('*')<0&&
+                    tvExpresion.getText().toString().indexOf('+')<0&&
+                    tvExpresion.getText().toString().indexOf('-')<0){
+                operatorClick = true;
+                tvExpresion.setText(tvExpresion.getText().toString()+operador);
+            }
+
         }
     }
 
