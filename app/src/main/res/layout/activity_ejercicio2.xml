@@ -16,6 +16,7 @@
         android:layout_weight="4"
         android:gravity="top|end"
         android:maxLength="9"
+        android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="60sp"
